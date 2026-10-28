@@ -45,12 +45,14 @@ quizForm.addEventListener("submit", (event) => {
 
   const percentage = Math.round((score / questionCards.length) * 100);
   scoreHeading.textContent = `You scored ${score} out of ${questionCards.length}!`;
-  if (score === questionCards.length) {
-    scoreMessage.textContent = `Perfect score — ${percentage}%. You're a true Soul Reaper!`;
-  } else if (score >= 3) {
-    scoreMessage.textContent = `Final Score: ${percentage}%. Great job, keep up your training!`;
+  if (percentage <= 50) {
+    scoreMessage.textContent = "You are a larper";
+  } else if (percentage <= 70) {
+    scoreMessage.textContent = "You might be a larper or you just didn't pay attention";
+  } else if (percentage <= 80) {
+    scoreMessage.textContent = "Not too shabby";
   } else {
-    scoreMessage.textContent = `Final Score: ${percentage}%. There's more to discover in the Soul Society!`;
+    scoreMessage.textContent = "you know your stuff";
   }
   results.hidden = false;
   results.scrollIntoView({ behavior: "smooth", block: "nearest" });
